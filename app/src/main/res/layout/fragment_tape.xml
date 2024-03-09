@@ -6,68 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.TapeFragment">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/topGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
-    <LinearLayout
-        android:id="@+id/LinearlayoutHome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@id/topGuideline">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="@string/type"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20sdp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:src="@drawable/ic_search_icon"
-            tools:ignore="ContentDescription" />
-    </LinearLayout>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp"
-        app:layout_constraintEnd_toEndOf="@id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline"
-        app:layout_constraintTop_toTopOf="@id/LinearlayoutHome">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvProduct"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content">
 
-    </com.google.android.material.card.MaterialCardView>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.03" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/leftGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/rightGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <LinearLayout
+                android:id="@+id/LinearlayoutHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                app:layout_constraintStart_toStartOf="@id/leftGuideline"
+                app:layout_constraintTop_toBottomOf="@id/topGuideline">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_search_icon"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                app:layout_constraintStart_toStartOf="@id/leftGuideline"
+                app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

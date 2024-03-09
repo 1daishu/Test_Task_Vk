@@ -60,9 +60,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     //navigation component dependency
-    val nav_version = "2.4.1"
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    val navVersion = "2.7.7"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     //androidx
@@ -76,4 +76,7 @@ dependencies {
     //intuit size for screens
     implementation("com.intuit.sdp:sdp-android:1.0.6")
     implementation("com.intuit.ssp:ssp-android:1.0.6")
+    //paging
+    implementation("androidx.paging:paging-common-ktx:3.2.1")
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
 }
