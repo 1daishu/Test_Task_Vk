@@ -1,6 +1,6 @@
-package com.shubin.testtaskvk.data.network
+package com.shubin.testtaskvk.domain.model
 
-data class ProductX(
+data class Product(
     val brand: String,
     val category: String,
     val description: String,
