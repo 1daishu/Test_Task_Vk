@@ -16,10 +16,11 @@ class ProductDataSource @Inject constructor(
     override fun getRefreshKey(state: PagingState<Int, Product>): Int {
         return STARTING_PAGE
     }
+
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Product> {
         val page = params.key ?: STARTING_PAGE
         return runCatching {
-            RetrofitInstance.networkService.getAllProduct(page, limit).products.map {
+            RetrofitInstance.networkService.getAllProduct(page, PAGE_SIZE).products.map {
                 dtoMapper.mapProductDtoToDomainItem(it)
             }
         }.fold(
@@ -27,17 +28,17 @@ class ProductDataSource @Inject constructor(
                 LoadResult.Page(
                     data = it,
                     prevKey = null,
-                    nextKey = if (page == limit) null else page + 1
+                    nextKey = if (page == PAGE_SIZE) null else ensureValidKey(page + 1)
                 )
             },
             onFailure = { LoadState.Error(it) }
         ) as LoadResult<Int, Product>
     }
 
-    private fun ensureValidKey(page: Int) = min(max(STARTING_PAGE, page), limit)
+    private fun ensureValidKey(page: Int) = min(max(STARTING_PAGE, page), PAGE_SIZE)
 
     companion object {
         private const val STARTING_PAGE = 1
-        private const val limit = 20
+        private const val PAGE_SIZE = 20
     }
 }
