@@ -21,6 +21,7 @@ class ProductPagingAdapter @Inject constructor(
         fun bind(product: Product) {
             Glide.with(binding.root.context).load(product.thumbnail).into(binding.imgProductItem)
             binding.txtDescription.text = product.description
+            binding.txtTitle.text = product.title
         }
     }
 

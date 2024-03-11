@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
 import com.shubin.testtaskvk.databinding.FragmentProductBinding
 import com.shubin.testtaskvk.ui.adapter.ProductPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,6 +49,16 @@ class ProductFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.items.collectLatest {
                     rvAdapter.submitData(it)
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                rvAdapter.loadStateFlow.collect {
+                    binding.appendProgress.isVisible =
+                        it.source.append is LoadState.Loading
+                    binding.prependProgress.isVisible =
+                        it.source.prepend is LoadState.Loading
                 }
             }
         }

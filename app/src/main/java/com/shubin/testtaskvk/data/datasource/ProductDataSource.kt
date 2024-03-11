@@ -1,5 +1,6 @@
 package com.shubin.testtaskvk.data.datasource
 
+import android.widget.Toast
 import androidx.paging.LoadState
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -27,12 +28,14 @@ class ProductDataSource @Inject constructor(
             onSuccess = {
                 LoadResult.Page(
                     data = it,
-                    prevKey = null,
+                    prevKey = if (page == STARTING_PAGE) null else page - 1,
                     nextKey = if (page == PAGE_SIZE) null else ensureValidKey(page + 1)
                 )
             },
-            onFailure = { LoadState.Error(it) }
-        ) as LoadResult<Int, Product>
+            onFailure = {
+                LoadResult.Error(it)
+            }
+        )
     }
 
     private fun ensureValidKey(page: Int) = min(max(STARTING_PAGE, page), PAGE_SIZE)

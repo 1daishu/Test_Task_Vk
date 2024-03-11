@@ -17,6 +17,6 @@ class ProductRepositoryImpl @Inject constructor(
     )
 
     companion object {
-        private const val ITEMS_PER_PAGE = 10
+        private const val ITEMS_PER_PAGE = 20
     }
 }
