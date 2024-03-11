@@ -1,6 +1,5 @@
 package com.shubin.testtaskvk.data.datasource
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.shubin.testtaskvk.data.mapper.DtoMapper
@@ -17,8 +16,6 @@ class ProductDataSource @Inject constructor(
         return try {
             val response = RetrofitInstance.networkService.getAllProduct(page * PAGE_SIZE, PAGE_SIZE)
             val products = response.products.map { dtoMapper.mapProductDtoToDomainItem(it) }
-            Log.d("ProductDataSource", "Number of items on page $page: ${products.size}")
-
             LoadResult.Page(
                 data = products,
                 prevKey = if (page == STARTING_PAGE) null else page - 1,
@@ -28,14 +25,12 @@ class ProductDataSource @Inject constructor(
             LoadResult.Error(e)
         }
     }
-
     override fun getRefreshKey(state: PagingState<Int, Product>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)?.prevKey ?: state.closestPageToPosition(anchorPosition)?.nextKey
             anchorPage ?: STARTING_PAGE
         }
     }
-
     companion object {
         private const val STARTING_PAGE = 0
         private const val PAGE_SIZE = 20

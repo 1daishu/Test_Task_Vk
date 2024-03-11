@@ -13,5 +13,4 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
     @Binds
     fun bindsProductRepository(productRepositoryImpl: ProductRepositoryImpl): ProductRepository
-
 }

@@ -1,4 +1,4 @@
-package com.shubin.testtaskvk.ui
+package com.shubin.testtaskvk.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
