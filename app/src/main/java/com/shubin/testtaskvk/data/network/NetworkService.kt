@@ -1,7 +1,6 @@
 package com.shubin.testtaskvk.data.network
 
 import com.shubin.testtaskvk.data.network.dto.ResponseDtoProduct
-import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

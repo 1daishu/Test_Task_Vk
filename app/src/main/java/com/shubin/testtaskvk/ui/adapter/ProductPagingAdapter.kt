@@ -16,7 +16,7 @@ class ProductPagingAdapter @Inject constructor(
 ) :
     PagingDataAdapter<Product, ProductPagingAdapter.ProductListViewHolder>(callBack) {
     inner class ProductListViewHolder(
-        val binding: ItemProductBinding
+        private val binding: ItemProductBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             Glide.with(binding.root.context).load(product.thumbnail).into(binding.imgProductItem)
@@ -48,7 +48,6 @@ class ProductPagingAdapter @Inject constructor(
             override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
                 return oldItem.id == newItem.id
             }
-
             override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
                 return oldItem == newItem
             }

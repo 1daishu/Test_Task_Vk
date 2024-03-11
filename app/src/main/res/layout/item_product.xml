@@ -18,7 +18,8 @@
             android:adjustViewBounds="true"
             android:src="@color/blue_wave"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtTitle"

@@ -2,7 +2,6 @@ package com.shubin.testtaskvk.data.mapper
 
 import com.shubin.testtaskvk.data.network.dto.ProductDto
 import com.shubin.testtaskvk.domain.model.Product
-import com.shubin.testtaskvk.domain.model.ProductItem
 import javax.inject.Inject
 
 class DtoMapper @Inject constructor() {
