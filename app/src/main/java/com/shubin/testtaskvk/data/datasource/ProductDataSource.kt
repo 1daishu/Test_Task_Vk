@@ -41,7 +41,7 @@ class ProductDataSource @Inject constructor(
     private fun ensureValidKey(page: Int) = min(max(STARTING_PAGE, page), PAGE_SIZE)
 
     companion object {
-        private const val STARTING_PAGE = 1
+        private const val STARTING_PAGE = 0
         private const val PAGE_SIZE = 20
     }
 }

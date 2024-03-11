@@ -15,6 +15,7 @@
             android:id="@+id/imgProductItem"
             android:layout_width="@dimen/_140sdp"
             android:layout_height="@dimen/_140sdp"
+            android:adjustViewBounds="true"
             android:src="@color/blue_wave"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,8 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
             android:fontFamily="@font/roboto_medium"
+            android:maxWidth="@dimen/_90sdp"
             android:text="@string/title"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
             app:layout_constraintStart_toEndOf="@id/imgProductItem"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +39,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:ellipsize="end"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/description"
             android:textAppearance="?attr/textAppearanceBody1"
