@@ -12,7 +12,7 @@ class ProductRepositoryImpl @Inject constructor(
 
 ) : ProductRepository {
     override fun getProduct(): Pager<Int, Product> = Pager(
-        config = PagingConfig(ITEMS_PER_PAGE, enablePlaceholders = false),
+        config = PagingConfig(ITEMS_PER_PAGE, enablePlaceholders = true),
         pagingSourceFactory = { productDataSource }
     )
 
