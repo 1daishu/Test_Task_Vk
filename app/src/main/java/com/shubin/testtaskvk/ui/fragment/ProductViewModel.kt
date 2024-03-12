@@ -15,6 +15,4 @@ class ProductViewModel @Inject constructor(
     val items: Flow<PagingData<Product>> = useCase()
         .flow
         .cachedIn(viewModelScope)
-
-
 }
